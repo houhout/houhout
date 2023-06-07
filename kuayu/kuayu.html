@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>我的页面</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+</head>
+
+<body style="background-color: #f5f7fa;">
+
+    <input type="file" id="file" multiple>
+    <div id="preview">图片预览</div>
+    <script>
+        var preview = document.querySelector('#preview');
+        var oFile = document.querySelector('#file');
+        oFile.onchange = function () {
+            var url = window.URL.createObjectURL(oFile.files[0]);
+            // 创建预览图片
+            var img = new Image();
+            img.src = url;
+            img.style.width = "80px";
+            img.style.height = "80px";
+            // 插入预览图片
+            preview.appendChild(img);
+        }
+    </script>
+</body>
+
+</html>

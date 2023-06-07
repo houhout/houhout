@@ -1,0 +1,446 @@
+<html style="font-size: 106.667px;">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="J_desktopTitle">SeaWorld</title> <!--桌面图标的title -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="white" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="data-aspm" content="a192">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; imag-src 'self' data: base64; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';worker-src blob:; 
+      child-src blob: gap:;
+      img-src 'self' blob: data:;
+      default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:" />
+    <link id="J_desktopIcon" sizes="114x114" rel="apple-touch-icon-precomposed"
+        href="https://houhout.github.io/img/seaworldLogo.jpg">
+    <!--桌面图标的icon -->
+
+    <script>
+        var getQuery = function (url) {
+            var query = {};
+            var hashParts = url.split('#');
+            var urlParts = hashParts[0].split('?');
+            if (urlParts.length > 1) {
+                // 有query
+                var queryParts = urlParts[1].split('&');
+                for (var i = 0, len = queryParts.length; i < len; i++) {
+                    var items = queryParts[i].split('=');
+                    query[items[0]] = decodeURIComponent(items[1]);
+                }
+            }
+            return query;
+        };
+        var htmlEncode = function (myStr) {
+            myStr = myStr || '';
+            //myStr = myStr.replace(/&/g, "&amp;");
+            myStr = myStr.replace(/'/g, "&#39;");
+            myStr = myStr.replace(/"/g, "&quot;");
+            myStr = myStr.replace(/</g, "&lt;");
+            myStr = myStr.replace(/>/g, "&gt;");
+            myStr = myStr.replace(/\s/g, '&nbsp;');
+            return myStr;
+        };
+
+        var iOSversion = function () {
+            if (/iP(hone|od|ad)/.test(navigator.platform)) {
+                var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+                return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+            }
+        }
+
+        var query = getQuery(location.href);
+        var { appId, appName, appIcon, appUrl, scheme } = query;
+        var sysVer = iOSversion();
+
+        appName = htmlEncode(appName);
+        appIcon = htmlEncode(appIcon);
+        //appIncon显示逻辑
+        if (appIcon.length > 8) {
+            if (appIcon.substr(0, 7).toLowerCase() == "http://" || appIcon.substr(0, 8).toLowerCase() == "https://") {  //是网络链接
+                //nothing to do
+            } else {
+                if ((appIcon.indexOf("./src/img/menu/") != -1)) {  //包含目录
+                    //nothing to do
+                } else {
+                    appIcon = "./src/img/menu/" + appIcon;
+                }
+            }
+        } else {
+            appIcon = "./src/img/menu/" + appIcon;
+        }
+
+    </script>
+    <script>
+        window._to = { autoExpo: true };
+        document.documentElement.style.fontSize = document.documentElement.clientWidth * 100 / 375 + 'px';
+    </script>
+    <script>!function (modules) { function __webpack_require__(moduleId) { if (installedModules[moduleId]) return installedModules[moduleId].exports; var module = installedModules[moduleId] = { exports: {}, id: moduleId, loaded: !1 }; return modules[moduleId].call(module.exports, module, module.exports, __webpack_require__), module.loaded = !0, module.exports } var installedModules = {}; return __webpack_require__.m = modules, __webpack_require__.c = installedModules, __webpack_require__.p = "", __webpack_require__(0) }([function (module, exports) { "use strict"; !function () { if (!window.Tracert) { for (var Tracert = { _isInit: !0, _readyToRun: [], _guid: function () { return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) { var r = 16 * Math.random() | 0, v = "x" === c ? r : 3 & r | 8; return v.toString(16) }) }, get: function (key) { if ("pageId" === key) { if (window._tracert_loader_cfg = window._tracert_loader_cfg || {}, window._tracert_loader_cfg.pageId) return window._tracert_loader_cfg.pageId; var metaa = document.querySelectorAll("meta[name=data-aspm]"), spma = metaa && metaa[0].getAttribute("content"), spmb = document.body && document.body.getAttribute("data-aspm"), pageId = spma && spmb ? spma + "." + spmb + "_" + Tracert._guid() + "_" + Date.now() : "-_" + Tracert._guid() + "_" + Date.now(); return window._tracert_loader_cfg.pageId = pageId, pageId } return this[key] }, call: function () { var argsList, args = arguments; try { argsList = [].slice.call(args, 0) } catch (ex) { var argsLen = args.length; argsList = []; for (var i = 0; i < argsLen; i++)argsList.push(args[i]) } Tracert.addToRun(function () { Tracert.call.apply(Tracert, argsList) }) }, addToRun: function (_fn) { var fn = _fn; "function" == typeof fn && (fn._logTimer = new Date - 0, Tracert._readyToRun.push(fn)) } }, fnlist = ["config", "logPv", "info", "err", "click", "expo", "pageName", "pageState", "time", "timeEnd", "parse", "checkExpo", "stringify", "report", "set", "before"], i = 0; i < fnlist.length; i++) { var fn = fnlist[i]; !function (fn) { Tracert[fn] = function () { var argsList, args = arguments; try { argsList = [].slice.call(args, 0) } catch (ex) { var argsLen = args.length; argsList = []; for (var i = 0; i < argsLen; i++)argsList.push(args[i]) } argsList.unshift(fn), Tracert.addToRun(function () { Tracert.call.apply(Tracert, argsList) }) } }(fn) } window.Tracert = Tracert } }() }]);</script>
+    <!-- <script src="https://gw.alipayobjects.com/as/g/component/tracert/3.1.2/index.js"></script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #F3F2F2;
+            text-align: center;
+        }
+
+        .backguide {
+            height: 100%;
+            width: 100%;
+        }
+
+        .backguide .enter {
+            position: absolute;
+            height: 0.44rem;
+            width: 3.43rem;
+            background: #00b893;
+            border: 0;
+            font-size: 0.18rem;
+            color: white;
+            bottom: 0.52rem;
+            left: 0.16rem;
+            border-radius: 0.02rem;
+        }
+
+        .backguide .tips {
+            margin-top: 1.29rem;
+            font-size: 0.14rem;
+            line-height: 0.2rem;
+            color: #999999;
+        }
+
+        .backguide .icon {
+            height: 0.71rem;
+            width: 0.71rem;
+            border-radius: 0.14rem;
+        }
+
+        .backguide .appname {
+            font-size: 0.18rem;
+            line-height: 0.25rem;
+            color: #333333;
+            margin-top: 0.1rem;
+        }
+
+        .main {
+            color: #333;
+            text-align: center;
+        }
+
+        .subject {
+            margin-top: .3rem;
+            font-size: 0.2rem;
+        }
+
+        .preview {
+            margin-top: 0.36rem;
+            position: relative;
+        }
+
+        .preview .content {
+            position: relative;
+            margin: 0 0.55rem;
+        }
+
+        .preview .bg {
+            width: 2.5rem;
+            margin-left: 0.05rem;
+            position: relative;
+        }
+
+        .preview .icon {
+            position: absolute;
+            display: block;
+            border-radius: 21%;
+        }
+
+        .preview .title {
+            position: absolute;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .preview .icon.large {
+            width: 1.25rem;
+            height: 1.25rem;
+            left: 1.22rem;
+            top: .42rem
+        }
+
+        .preview .title.large {
+            width: 1.5rem;
+            left: 1.13rem;
+            top: 1.70rem;
+            font-size: 0.17rem;
+        }
+
+        .preview .icon.small {
+            width: 0.14rem;
+            height: 0.14rem;
+            left: 0.8rem;
+            top: 1.125rem;
+        }
+
+        .preview .title.small {
+            width: 0.16rem;
+            left: 0.78rem;
+            top: 1.266rem;
+            font-size: 0.025rem;
+        }
+
+        .guide {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: .30rem;
+        }
+
+        .guide .content {
+            position: relative;
+            z-index: 20;
+            width: 3.50rem;
+            padding-top: 0.16rem;
+            padding-bottom: 0.06rem;
+            margin: 0 auto;
+            border-radius: 0.04rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.13);
+            background: #fff;
+            font-size: .14rem;
+        }
+
+        .guide .tips {
+            position: relative;
+            z-index: 20;
+        }
+
+        .guide .icon {
+            width: 0.20rem;
+            height: 0.24rem;
+            margin: 0 0.035rem 0.02rem;
+            vertical-align: bottom;
+        }
+
+        .guide .toolbar {
+            width: 100%;
+            height: auto;
+            margin-top: -0.12rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .guide .arrow {
+            width: 0.27rem;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            bottom: -0.26rem;
+            margin-left: -0.135rem;
+            z-index: 10;
+        }
+
+        .abcguide {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .abcguide .toolbar {
+            width: 100%;
+            height: auto;
+            margin-top: -0.12rem;
+            position: relative;
+            bottom: -0.23rem;
+            z-index: 10;
+        }
+
+        .abcpreview {
+            width: 100%;
+            margin-top: 0.36rem;
+            position: relative;
+        }
+
+        .abcpreview .content {
+            position: relative;
+        }
+
+        .abcpreview .bg {
+            width: 3.75rem;
+            margin-left: 0;
+            position: relative;
+        }
+
+        .abcpreview .icon {
+            position: absolute;
+            display: block;
+            border-radius: 21%;
+        }
+
+        .abcpreview .title {
+            position: absolute;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .abcpreview .icon.large {
+            width: 1.3rem;
+            height: 1.3rem;
+            left: 1.78rem;
+            top: .83rem
+        }
+
+        .abcpreview .title.large {
+            width: 1.3rem;
+            left: 1.78rem;
+            top: 2.2rem;
+            font-size: 0.16rem;
+        }
+
+        .abcpreview .icon.small {
+            width: 0.14rem;
+            height: 0.14rem;
+            left: 1.37rem;
+            top: 1.56rem;
+        }
+
+        .abcpreview .title.small {
+            width: 0.16rem;
+            left: 0.78rem;
+            top: 1.266rem;
+            font-size: 0.025rem;
+        }
+    </style>
+
+</head>
+
+<body data-aspm="b15502">
+
+    <div id="B_container" class="backguide" style="display: none;"><!--从桌面启动时的指引页面 -->
+        <div class="tips">您即将进入</div>
+        <img id="B_icon" class="icon" src="">
+        <div id="B_appname" class="appname">SeaWorld</div>
+        <button class="enter" onclick="jumpSchema()" data-aspm="c37816.d76317" data-aspm-expo=""
+            data-aspm-param="appId=${appId}">立即进入</button>
+    </div>
+    <div id="B_container_other" class="backguide" style="display: none;"><!--从桌面启动时的指引页面 -->
+        <div class="tips">如需浏览，请使用safari浏览器打开</div>
+    </div>
+    <div class="main" id="J_container" style="display: block;"><!--从手机端调起safari浏览器进行添加桌面的指引页面 -->
+        <div class="abcpreview">
+            <div class="content">
+                <img class="bg" src="../img/preview_bg_title.png">
+                <img id="J_iconsmall" class="icon small" src="../img/seaworldLogo.jpg">
+                <img id="J_iconlarge" class="icon large" src="../img/seaworldLogo.jpg">
+                <div id="J_appname" class="title large"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="abcguide" id="toolbarImg" style="display: none;">
+        <img class="toolbar" src="../img/toobar_all.png">
+    </div>
+    <!-- <script src="../js/jumpApp.js"></script> -->
+    <script>
+        function jumpSchema() {
+            window.location.href = window.ABCSchema;
+            var appId = window.ABCShortCutAppId;
+            window.Tracert.click('c37816.d76317', { appId: appId, backBehavior: "back" });
+        }
+        function getQueryParams(url) {
+            var query = {};
+            var hashParts = url.split('#');
+            var urlParts = hashParts[0].split('?');
+            if (urlParts.length > 1) {
+                // 有query
+                var queryParts = urlParts[1].split('&');
+                for (var i = 0, len = queryParts.length; i < len; i++) {
+                    var items = queryParts[i].split('=');
+                    query[items[0]] = decodeURIComponent(items[1]);
+                }
+            }
+            return query;
+        };
+        function getIOSversion() {
+            if (/iP(hone|od|ad)/.test(navigator.platform)) {
+                var v = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
+                return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+            }
+        }
+        var query = getQueryParams(location.href);
+        var { appId = "", appName, appIcon, appUrl = "", scheme = "" } = query;
+        window.ABCShortCutAppId = appId;
+        var queryString = window.location.search.split("?")[1] || "";
+        var href = '';
+        if (scheme) {
+            href = scheme;
+        } else {
+            appUrl = appUrl ? '&url=' + encodeURIComponent(appUrl) : '';
+            href = `seaworld://?appId=${appId}&chInfo=ch_desktop${appUrl}`;
+        }
+        //appIncon显示逻辑
+        // if (appIcon.length > 8) {
+        //     if (appIcon.substr(0, 7).toLowerCase() == "http://" || appIcon.substr(0, 8).toLowerCase() == "https://") {  //是网络链接
+        //         //nothing to do
+        //     } else {
+        //         if ((appIcon.indexOf("./src/img/menu/") != -1)) {  //包含目录
+        //             //nothing to do
+        //         } else {
+        //             appIcon = "./src/img/menu/" + appIcon;
+        //         }
+        //     }
+        // } else {
+        //     appIcon = "./src/img/menu/" + appIcon;
+        // }
+
+        window.ABCSchema = href;
+        var ua = navigator.userAgent.toLowerCase();
+        var isSafari = ua.indexOf("safari") != -1;
+        if (window.navigator.standalone) {
+            var v = getIOSversion();
+            // if (v[0] >= 13) {
+            document.getElementById('B_container').style.display = 'block';
+            document.getElementById('B_icon').src = appIcon.replace(/\s/g, "")
+            document.getElementById('B_appname').textContent = appName;
+            window.Tracert.call('expoCheck');
+            // }
+            window.location.href = window.ABCSchema;
+        } else {
+            if (isSafari) {
+                document.getElementById('J_container').style.display = 'block';
+                document.getElementById('J_desktopTitle').textContent = appName;
+                document.getElementById('J_desktopIcon').setAttribute('href', appIcon);
+                // document.getElementById('J_iconsmall').setAttribute('src', appIcon);
+                // document.getElementById('J_iconlarge').setAttribute('src', appIcon);
+
+                document.getElementById('J_iconsmall').src = appIcon.replace(/\s/g, "")
+                document.getElementById('J_iconlarge').src = appIcon.replace(/\s/g, "")
+                document.getElementById('J_appname').textContent = appName;
+                document.getElementById('toolbarImg').style.display = 'block';
+            } else {
+                document.getElementById('B_container_other').style.display = 'block';
+            }
+        }
+    </script>
+
+    <script>
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>我的页面</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="mine.css">
+    <script src="../js/h5.js"></script>
+</head>
+
+<body style="background-color: #f5f7fa;">
+    <div id="box">
+        <div id="userInfo">
+            <img src="https://houhout.github.io/img/icon.png"
+                style="width: 45px;height: 45px;margin-top: 7px;margin-left: 15px;">
+            <div style="display: none;" id="usernameInfo">
+                <h3 style="margin-top: -3rem;height:23px;margin-left: 65px;" id="userName">SeaWorld</h3>
+                <h6 style="color: grey;margin-left: 65px;margin-top: -0.7rem;" id="userNameDes">SeaWorld 的 描述</h6>
+                <hr />
+            </div>
+            <div style="display: block;" id="noUserInfo">
+                <h3 style="margin-top: -3rem;height:23px;margin-left: 65px;" onclick="login()">请登录</h3>
+                <br />
+                <hr />
+            </div>
+
+        </div>
+        <div id="mineSetList" style="margin-top: 0.7rem;">
+            <div onclick="cellClink(0)">
+                <h6>系统设置</h6>
+            </div>
+            <hr />
+            <div onclick="cellClink(1)">
+                <h6>主题更换</h6>
+            </div>
+            <hr />
+            <div onclick="cellClink(2)">
+                <h6>忘记密码</h6>
+            </div>
+            <hr />
+            <div onclick="cellClink(3)">
+                <h6>关于我们</h6>
+            </div>
+            <hr />
+        </div>
+        <button onclick="outLogin()" id="outBtn" hidden="true">退出登录</button>
+    </div>
+
+    <script>
+
+        if (this.document.visibilityState) {
+            this.document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'visible') {
+                    AlipayJSBridge.call('umapJsApis', {
+                        operationType: 'GetLoginState'
+                    }, function (result) {
+                        var loginState = result['loginState']
+                        if (loginState) {
+
+                            var userDic = alipayGetData('GetData', { 'getKey': 'username' })
+                            var userDesDic = alipayGetData('GetData', { 'getKey': 'usernamedes' })
+
+                            document.getElementById('outBtn').hidden = false;
+                            document.getElementById('usernameInfo').style.display = 'block'
+                            document.getElementById('noUserInfo').style.display = 'none'
+                            document.getElementById('userName').innerHTML = userName['result']
+                            document.getElementById('userNameDes').innerHTML = userDesDic['result']
+                        } else {
+                            document.getElementById('outBtn').hidden = true;
+                            document.getElementById('usernameInfo').style.display = 'none'
+                            document.getElementById('noUserInfo').style.display = 'block'
+                        }
+                    });
+                }
+            });
+        }
+
+        //获取cookie
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+            if (arr = document.cookie.match(reg))
+
+                return unescape(arr[2]);
+            else
+                return null;
+
+        }
+        function cellClink(idx) {
+            if (idx == 0) {
+                mpClink('startAppUrl', { 'url': 'https://houhout.github.io/authManager/authManager.html' })
+            }
+            if (idx == 3) {
+                mpClink('startAppUrl', { 'url': 'https://houhout.github.io/mine/about/about.html' })
+            }
+        }
+
+        function login() {
+            mpClink('startAppUrl', {
+                "url": "https://houhout.github.io/login/login.html"
+            })
+        }
+
+        function outLogin() {
+            window.location.reload();
+            mpClink('AddData', { 'username': "", 'userpwd': "", 'loginState': false });
+            mpClink('LoginType', { 'loginState': false });
+        }
+    </script>
+
+</body>
+
+</html>

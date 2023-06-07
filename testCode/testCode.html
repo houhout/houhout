@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>我的第一个网页</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="https://houhout.github.io/htcss.css">
+    <script src="https://houhout.github.io/js/h5.js"></script>
+    <script src="../js/h5.js"></script>
+    <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <div id="navBar">
+            <img onclick="navBack()" src="../img/nav_back.png" style="width:40px;height:34px;padding: 5px 0;">
+        </div>
+
+        <div id="mpaasTest" style="width: 100%;height: 200px;">
+            <button onclick="mpClink('test')">mpaas JS 调用</button>
+
+
+
+        </div>
+
+        <div id="topBox">
+            <h1 id="demo"></h1>
+            <button onclick="testlog('张三',35)">调用js对象</button>
+            <button onclick="testlog('李四',33)">点击这里</button>
+
+            <h1 id="showDate"></h1>
+            <button onclick="getElementById('showDate').innerHTML = Date()">点击这里</button>
+
+            <button onclick="listLabel(10)">for生成label标签</button>
+
+        </div>
+
+
+
+        <a href="Model/detail.html">详细页面</a>
+
+        <h1 id="toph1">h1标题标签</h1>
+        <h6>h6标题标签</h6>
+        <hr />
+        <p>p标签是段落标签,第一段文字</p>
+        <p>p标签是段落标签,<br>br是换行标签第二段文字</p>
+
+        <blockquote cite="https://www.baidu.com">百度搜索</blcokquote>
+
+            <pre>这是预格式标签
+                    这是换行
+                    这是空格</pre>
+
+            <ol>
+                <li>第一项</li>
+                <li>第二项</li>
+                <li>第三项</li>
+            </ol>
+
+            <ul>
+                <li>第一项</li>
+                <li>第二项</li>
+                <li>第三项</li>
+            </ul>
+
+            <dl>
+                <dt>这是定义列表的标题</dt>
+                <dd>第一项</dd>
+                <dd>第二项</dd>
+                <dd>第三项</dd>
+            </dl>
+
+            <figure>
+                <img src="img/icon.png">
+                <figcaption>这是图片</figcaption>
+            </figure>
+
+            <div style="width:100px;height:100px;background-color:red;">这是一个分区标签</div>
+
+            <span style="color:green;">span标题标签span标题标签span标题标签<span style="color:red;">span子标签</span></span>
+            <br />
+            <q>(短引用）显示文字为“”引起来 </q>
+            <br />
+            <small>缩小字体1<small>缩小字体2<small>缩小字体3<small>缩小字体4</small></small></small></small>
+            <br />
+            <em>强调</em>
+            <br />
+            <strong>强调</strong>
+            <br />
+            <i>倾斜</i>
+            <br />
+            <b>加粗</b>
+
+            <blockquote cite="https://www.baidu.com">百度搜索</blcokquote>
+                <a href="http:www.baidu.com" title="超链接百度">超链接百度搜索</a>
+                <a href="http:www.baidu.com" target="_blank">超链接百度搜索 新页面打开</a>
+
+                <a href="https://wenku.baidu.com/view/b06445e4524de518964b7dc1.html?fr=income2-doc-search&_wkts_=1682241751806&bdQuery=%E7%99%BE%E5%BA%A6%E6%96%87%E5%BA%93%E5%AE%98%E7%BD%91&wkQuery=%E7%BE%8E%E6%96%87"
+                    rel="next">超链接百度搜索 最后一章</a>
+
+                <br />
+                <a href="https://wenku.baidu.com/view/b06445e4524de518964b7dc1.html?fr=income2-doc-search&_wkts_=1682241751806&bdQuery=%E7%99%BE%E5%BA%A6%E6%96%87%E5%BA%93%E5%AE%98%E7%BD%91&wkQuery=%E7%BE%8E%E6%96%87"
+                    name="top">锚链接</a>
+
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202005%2F27%2F20200527221208_jWu3G.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1683697790&t=26734314944592a68ca8b783c3a03e30"
+                    height="300px" width="100px">测试<br />
+
+                <input id="iptxt" form="1" method="get"></input>
+                <input type="text" id="ipuName"></input>
+                <button type="button" onclick="myFunction()">按钮</button>
+
+    </div>
+
+</body>
+
+</html>

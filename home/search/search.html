@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>搜索</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="htcss.css">
+</head>
+
+<body onpageshow="pageShow()" style="background-color: #f5f7fa;">
+    <div id="box">
+
+        <div id="topsearch-input" style="float: left;">
+
+            <input class="search-input" placeholder="请输入搜索关键词" type="search" v-model="query" autocomplete="no"
+                @keyup.13="onSearchKeyDown" style="width: 80%;height: 40px;" /> <button onclick="cancellClink()"
+                id="searchBtn" style="width: 15%;margin-left: 10px;height: 40px;">取消</button>
+
+        </div>
+
+    </div>
+    <script>
+        AlipayJSBridge.call('umapJsApis', {
+            operationType: 'GetDeveInfo'
+        }, function (result) {
+            var navheight = result['NavHeight']
+            var statusheight = result['StatusHeight']
+            document.getElementById('topsearch-input').style = 'margin-top: ' + (statusheight + 10) + 'px;"'
+        });
+        function cancellClink() {
+            AlipayJSBridge.call('popWindow');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>权限管理</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="authManager.css">
+    <script src="../js/h5.js"></script>
+</head>
+
+<body style="background-color: #f5f7fa;">
+    <div id="box">
+        <h6>在使用过程中,农行企业掌银app会向您申请手机系统权限,您可以在这里对常用权限进行管理</h6>
+        <hr />
+        <div id="mineSetList" style="margin-top: 0.7rem;">
+            <div onclick="mpClink('SysConfigPage')">
+                <h6>相机权限</h6>
+                <h6 id="sysState1" style="position: absolute;right: 0.2rem;margin-top: -1rem;">111</h6>
+            </div>
+            <hr />
+            <div onclick="cellClink(1)">
+                <h6>相册权限</h6>
+                <h6 id="sysState2"></h6>
+            </div>
+            <hr />
+            <div onclick="cellClink(2)">
+                <h6>麦克风权限</h6>
+                <h6 id="sysState3"></h6>
+            </div>
+            <hr />
+        </div>
+</body>
+
+</html>

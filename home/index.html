@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>首页</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="htcss.css">
+    <script src="../js/h5.js"></script>
+</head>
+
+<body onpageshow="pageShow()" style="background-color: #f5f7fa;">
+    <div id="box">
+        <div id="top">
+            <img id="topBg" src="../img/topBg.jpg">
+            <div id="btns">
+            </div>
+        </div>
+        <div id="contenter">
+            <img id="adbannner"
+                src="https://ms.bdimg.com/pacific/0/pic/1143471791_-815295845.jpg?x=0&y=0&h=340&w=510&vh=340.00&vw=510.00&oh=340.00&ow=510.00"
+                style="width: 90%;margin-left: 5%;height: 120px;margin-top: 10px;border-radius: 15px;" />
+            <div
+                style="border:1px solid #EE872A;height: 500px;width: 90%;margin-left: 5%; text-align: center;background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202005%2F27%2F20200527221208_jWu3G.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1683697790&t=26734314944592a68ca8b783c3a03e30);">
+                <br />
+                <h3>《关山月》</h3><br />
+                <h5>明月出天山，苍茫云海间。</h5>
+                <h5>长风几万里，吹度玉门关。</h5>
+                <h5>汉下白登道，胡窥青海湾。</h5>
+                <h5>由来征战地，不见有人还。</h5>
+                <h5>戍客望边色，思归多苦颜。</h5>
+                <h5>高楼当此夜，叹息未应闲。</h5>
+            </div>
+        </div>
+        <div id="footer">
+            <h5>h5 学习页面底部</h5>
+        </div>
+    </div>
+
+    <script>
+        function startDownloadImg(imgUrl, callback) {
+            let imageURL = imgUrl
+            let downloadedImg = new Image()
+            downloadedImg.crossOrigin = 'Anonymous'
+            downloadedImg.src = imageURL
+            downloadedImg.addEventListener('load', callback(downloadedImg), false)
+        }
+    </script>
+
+</body>
+
+</html>

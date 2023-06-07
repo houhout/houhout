@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css学习</title>
+    <script src="../js/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="csslean.css">
+
+    <style>
+        h1 {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root">
+        <h1>CSS 学习</h1>
+        <div class="baseCs" v-bind:class="divCssArr">1111</div>
+
+        <p>学习了<span>前端</span>,再学习<span>java</span></p>
+
+        <h2 id="mytitle">您好</h2>
+
+        <p style="text-decoration: underline;">下划线</p>
+    </div>
+</body>
+
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            divCssArr: ['orignBgClor']
+        }
+    })
+</script>
+
+</html>

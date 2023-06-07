@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>我的页面</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="htcss.css">
+    <script src="js/h5.js"></script>
+</head>
+
+<body onpageshow="pageShow()" style="background-color: #f5f7fa;">
+    <h6>页面1-------</h6>
+
+    <script>
+        document.addEventListener('resume', this.resumePage, false);
+        window.AlipayJSBridge && AlipayJSBridge.call('startApp', {
+            appId: '55555555',
+            param: {
+                url: '/dist/index.html#/',
+                defaultTitle: '页面B',
+                readTitle: false,
+                backBehavior: 'back'
+            }
+        });
+
+        function resumePage() {
+            console.log('页面1触发resume事件');
+            window.AlipayJSBridge && AlipayJSBridge.call('exitApp');
+        }
+        function beforeDestroy() {
+            document.removeEventListener('resume', this.resumePage, false);
+        }
+    </script>
+</body>
+
+</html>

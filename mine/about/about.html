@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>关于我们</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <script src="https://houhout.github.io/js/h5.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+
+<body style="background-color: #f5f7fa;">
+    <div data-role="page">
+        <div data-role="content">
+            <img src="../../img/seaworldLogo.jpg"
+                style="position: absolute;margin-left: auto;margin-right: auto;width: 120px;height: 120px;left: 0;right: 0;margin-top: 160px;top: 0;">
+
+            <div>
+                <hr />
+            </div>
+
+            <!-- <ul data-role="listview">
+                <li style="height: 300px;">
+                    <img src="../../img/seaworldLogo.jpg"
+                        style="position: absolute;margin-left: auto;margin-right: auto;width: 120px;height: 120px;left: 0;right: 0;margin-top: 160px;top: 0;">
+
+                </li>
+                <li>
+                    隐私政策 <label id="currentVersion" style="float: right;" onclick="yinsi()">></label>
+                </li>
+                <li>
+                    当前版本 <label id="currentVersion" style="float: right;"></label>
+                </li>
+            </ul> -->
+
+        </div>
+
+    </div>
+    <div id="box">
+        <!-- <h1>点击下面按钮查看不同截图效果</h1>
+        <a href="javascript:void(0)" class="btn screen">截取屏幕并保存到相册</a>
+        <a href="javascript:void(0)" class="btn viewport">viewport 截图返回 fileURL</a> -->
+    </div>
+    <script>
+        AlipayJSBridge.call('umapJsApis', {
+            operationType: 'GetDeveInfo'
+        }, function (result) {
+            var applocalversion = result['applocalversion']
+            document.getElementById('currentVersion-input').innerHTML = currentVersion
+        });
+
+        function yinsi() {//
+            mpClink('startAppUrl', { 'url': 'https://houhout.github.io/auth/auth.html' })
+        }
+
+
+        // function ready(callback) {
+        //     // 如果 jsbridge 已经注入则直接调用
+        //     if (window.AlipayJSBridge) {
+        //         callback && callback();
+        //     } else {
+        //         // 如果没有注入则监听注入的事件
+        //         document.addEventListener('AlipayJSBridgeReady', callback, false);
+        //     }
+        // }
+        // ready(function () {
+        //     document.querySelector('.screen').addEventListener('click', function () {
+        //         AlipayJSBridge.call('snapshot', function (result) {
+        //             alert(JSON.stringify(result));
+        //         });
+        //     });
+
+        //     document.querySelector('.viewport').addEventListener('click', function () {
+        //         AlipayJSBridge.call('snapshot', {
+        //             range: 'viewport',
+        //             dataType: 'fileURL',
+        //             saveToGallery: false
+        //         }, function (result) {
+        //             alert(JSON.stringify(result));
+
+        //             AlipayJSBridge.call('umapJsApis', {
+        //                 operationType: 'snapshot',
+        //                 params: result
+        //             }, function (result) {
+
+        //             });
+
+        //         });
+        //     });
+        // });
+    </script>
+</body>
+
+</html>

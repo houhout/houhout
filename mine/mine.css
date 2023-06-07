@@ -1,0 +1,22 @@
+#userInfo {
+    width: 100%;
+    height: 80px;
+}
+
+#outBtn {
+    width: 80%;
+    height: 35px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+}
+
+#mineSetList h6 {
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}

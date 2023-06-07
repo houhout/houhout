@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>登录</title>
+    <link rel="icon" href="https://houhout.github.io/img/icon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="houhou" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,
+            maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="logincss.css">
+    <script src="../js/h5.js"></script>
+    <script src="loginjs.js"></script>
+</head>
+
+<body onpageshow="pageShow()" style="background-color: #f5f7fa;">
+    <div id="box">
+        <img id="icon" src="https://himg.bdimg.com/sys/portrait/item/public.1.c3040dfe.oUhO2ILaaWDgWgfNEuIFUg.jpg">
+        <div id="loginBox">
+            <br />
+            <input type="text" placeholder="用户名" id="username">
+            <br />
+            <input type="password" placeholder="密码" id="userpwd">
+            <br />
+            <div>
+                <input type="checkbox" name="reading"
+                    style="width: 15px;height: 15px;margin-right: 5px;padding: auto 0;"><a href="https://www.baidu.com"
+                    style="height: 20px;padding: auto 0;">隐私协议</a>
+            </div>
+            <br />
+            <button onclick="login()">登 陆</button>
+            <br />
+            <button onclick="rigerst()">注册新用户</button>
+        </div>
+    </div>
+</body>
+
+</html>

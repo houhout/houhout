@@ -1,0 +1,27 @@
+/* 注释 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.baseCs {
+    width: 100%;
+    height: 100px;
+}
+
+.orignBgClor {
+    background-color: orange;
+}
+
+span {
+    color: purple;
+}
+
+#mytitle {
+    border: 3px dashed green;
+}
+
+.orignBgClor,
+#mytitle {
+    border-radius: 10px;
+}

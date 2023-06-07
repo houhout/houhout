@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="../vueJs/vue.js"></script>
+    <script src="../../js/h5.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <navBar-backBtn></navBar-backBtn>
+        <h1 v-if="awesome">Vue is awesome</h1>
+        <h1 v-else>Oh no !!</h1>
+        <h1 v-show="awesome">Hello!</h1>
+
+        <h1>------- v-for ------</h1>
+
+        <ul>
+            <li v-for="item in items" :key="item.id">
+                {{item.msg}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(item ,index) in items" :key="item.id">
+                {{testStr}} -- {{index}} - {{item.msg}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(item ,index) of items" :key="item.id">
+                {{testStr}} -- {{index}} - {{item.msg}} --{{item.id}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="obj of objcet">
+                {{obj}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(n1,value,index) of objcet">
+                {{n1}} -- {{value}} -- {{index}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="item in evenNumbers">
+                {{item}}
+            </li>
+        </ul>
+
+        <div>
+            <span v-for="n in 10">{{n}}</span>
+        </div>
+
+        <ul>
+            <template v-for="obj in items">
+                <li>{{obj.msg}}</li>
+                <li>{{objcet}}</li>
+                <hr />
+            </template>
+        </ul>
+
+        <my-component-lab v-for="item in items" :key="item.id" v-bind:msg="112213123"
+            v-bind:objee='345354435345345'>111</my-component-lab>
+
+
+        <hr />
+        <form v-on:submit.prevent="addNewItem">
+            <label>Add a item</label>
+            <input v-model="newItemText" placeholder="E.g. Feed the cat"><button>Add</button>
+        </form>
+        <ul>
+            <li is="todo-item" v-for="(item,index) in items" v-bind:key="item.id" v-bind:title="item.msg"
+                v-on:remove='items.splice(index,1)'>
+
+            </li>
+        </ul>
+
+
+    </div>
+</body>
+
+<script>
+
+    Vue.component('my-component-lab', {
+        template: '<p>{{msg}}----{{objee}}</p>',
+        props: ['msg', 'objee']
+    })
+
+    Vue.component('todo-item', {
+        template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click=" $emit(\'remove\')">Remove</button>\
+            </li>\
+            ',
+        props: ['title']
+    })
+
+
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            newItemText: '',
+            testStr: '测试文字',
+            awesome: true,
+            items: [
+                { id: 1, msg: 'str1' },
+                { id: 2, msg: 'str2' },
+                { id: 3, msg: 'str3' },
+                { id: 4, msg: 'str4' },
+            ],
+            objcet: {
+                name: '张三',
+                age: 19,
+                address: '北京'
+            },
+            numbers: [1, 3, 4, 5, 7, 9, 2, 34, 0],
+            nextItemId: 5
+        },
+        computed: {
+            evenNumbers() {
+                return this.numbers.filter(function (nuber) {
+                    return nuber % 2 === 0
+                })
+            }
+        },
+        methods: {
+            addNewItem() {
+                this.items.push({
+                    id: this.nextItemId++,
+                    msg: this.newItemText
+                })
+                this.newItemText = ''
+            }
+        },
+
+    })
+</script>
+
+</html>
