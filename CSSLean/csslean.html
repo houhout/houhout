@@ -4,14 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Css学习</title>
     <script src="../js/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="csslean.css">
-
+    <meta name="viewport" content="width=devicewidth, initial-scale=1,maximum-scale=1, userscalable=no">
+    <link rel="stylesheet" href="font_rvru9irhzxo/iconfont.css">
     <style>
-        h1 {
-            color: orange;
+        .sanjiaoxing {
+            width: 0;
+            height: 0;
+            border-top: 50px solid red;
+            border-left: 50px solid green;
+            border-right: 50px solid orange;
+            border-bottom: 50px solid blue;
+        }
+
+        .tixing {
+            width: 100px;
+            height: 0;
+            border-left: 100px solid orange;
+            border-right: 50px solid palegreen;
+            border-bottom: 100px solid blue;
+        }
+
+        .duoliep {
+            /* 列数 */
+            column-count: 3;
+            /* 列间距 */
+            column-gap: 20px;
+            /* 列边框 */
+            column-rule-style: solid;
+
+            /* 两列的边框厚度 */
+            column-rule-width: 5px;
+
+            column-rule-color: orange;
         }
     </style>
 </head>
@@ -27,6 +54,109 @@
         <h2 id="mytitle">您好</h2>
 
         <p style="text-decoration: underline;">下划线</p>
+
+        <ul>
+            <li>张三</li>
+            <li>李四</li>
+            <li>王武</li>
+        </ul>
+
+        <h2>表格边框</h2>
+        <table>
+            <tr>
+                <td>是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事</td>
+                <td>2222</td>
+            </tr>
+            <tr>
+                <td>3333<img src="../img/menus/03.png" alt="" style="vertical-align: text-bottom;"></td>
+                <td>4444</td>
+            </tr>
+
+        </table>
+
+        <h2 class="textGradient">滚动查看被遮挡的内容</h2>
+        <div style="height: 50px;width: 100%; background-color: bisque;overflow: scroll;">
+
+            <p style="width: 100%; border: 1px solid purple;margin-bottom: 10px;">
+                是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还是你粉丝绥芬河市空腹喝康师傅还是看个浑善达克共商国是哭给谁看过多少故事粉丝绥芬河市空腹喝康师傅还师傅还是看个浑善达克共商国是哭给谁看过多少故事
+            </p>
+        </div>
+
+        <a href="https://www.sayw.cn">超链接</a>
+
+        <div style="width: 200px;height: 200px; background-color: beige; padding-top: 10px;padding-left: 30px;">
+            <div style="background-color: burlywood; width: 100px;height: 100px;">
+
+            </div>
+
+        </div>
+        <div class="flex-container">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
+        </div>
+
+
+        <div class="flex-containernew">
+            <div class="flex-item1">flex item
+                1</div>
+            <div class="flex-item2">flex item
+                2</div>
+            <div class="flex-item3">flex item
+                3</div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        上下渐变
+        <div class="boxBgTopBottom">
+
+        </div>
+        左右渐变
+        <div class="boxBgLeftRight">
+
+        </div>
+        对角渐变
+        <div class="boxBgTopBottomLeftRight">
+
+        </div>
+        <div class="box3d">文本查看信息</div>
+
+        <div class="box">
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h2>绘制特殊图形</h2>
+
+        三角形
+        <div class="sanjiaoxing">
+
+        </div>
+
+        梯形
+        <div class="tixing">
+        </div>
+
+        <br>
+
+        <p class="duoliep">CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3
+            可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3
+            可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3 可以将文本内容设计成像报纸一样的多列布局CSS3
+            可以将文本内容设计成像报纸一样的多列布局</p>
+
+
+        <div>
+            <i class="iconfont icon-fhh"></i>
+        </div>
+
     </div>
 </body>
 
