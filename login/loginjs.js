@@ -12,6 +12,7 @@ function login() {
             alert("请勾选隐私协议");
             return;
         }
+        localStorage.setItem("logininfos", JSON.stringify({ 'username': username, 'userpwd': userpwd }))
         mpClink('Dialog', { 'title': "提示", 'message': '登录成功', 'buttons': ['确定'] });
         mpClink('AddData', { 'username': username, 'userpwd': userpwd, 'loginState': true });
         mpClink('LoginType', { 'loginState': true });
